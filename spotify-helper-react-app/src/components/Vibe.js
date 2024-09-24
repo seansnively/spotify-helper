@@ -3,12 +3,11 @@ import { useContext } from 'react';
 
 const Vibe = () => {
 
-    const { user, logout } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     return (
         <div>
             <h1>Hello vibe, {user.authToken}!</h1>
-            <button onClick={logout}>Logout</button>
         </div>
     );
 };

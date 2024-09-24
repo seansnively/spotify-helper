@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
+  function toggleNavbar() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('open');
+  }
+
   return (
     <nav>
       <ul>
@@ -11,7 +16,7 @@ const NavBar = () => {
           <NavLink to="/vibe">Vibe</NavLink>
         </li>
         <li>
-          <NavLink to="/switchAccount">Switch Account</NavLink>
+          <NavLink to="/switchAccount">Switch Account or Logout</NavLink>
         </li>
       </ul>
     </nav>
