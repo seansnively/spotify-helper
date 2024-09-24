@@ -1,11 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  function toggleNavbar() {
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('open');
-  }
-
   return (
     <nav>
       <ul>
