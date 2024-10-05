@@ -8,9 +8,6 @@ const NavBar = () => {
           <NavLink to="/">Top Tracks</NavLink>
         </li>
         <li>
-          <NavLink to="/vibe">Vibe</NavLink>
-        </li>
-        <li>
           <NavLink to="/switchAccount">Logout</NavLink>
         </li>
       </ul>

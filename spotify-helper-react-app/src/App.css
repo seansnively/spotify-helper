@@ -47,7 +47,7 @@ ul li a.active {
 }
 
 nav {
-  background-color: #42ac42; /* Green color */
+  background-color: #1db954; /* Green color */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,4 +85,70 @@ h1 {
   li {
     margin: 10px 0;
   }
+}
+
+select {
+  appearance: none; /* Remove default browser styling */
+  background-color: #1db954; /* Light gray background */
+  border: 1px solid #d3d3d3; /* Light gray border */
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff;
+  width: 10%; /* Adjust width as needed */
+  content: '\25BC';
+}
+
+select:hover {
+  background-color: #18a94e; /* Slightly darker shade on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+select:active {
+  background-color: #0f6830; /* Slightly darker shade on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+select:focus {
+  background-color: #0f6830; /* Slightly darker shade on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  appearance: none; /* Remove default browser styling */
+  background-color: #585858; /* Light gray background */
+  border: 1px solid #d3d3d3; /* Light gray border */
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff;
+  width: 10%; /* Adjust width as needed */
+}
+
+button {
+  background-color: #1db954; /* Spotify green color */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #18a94e; /* Slightly darker shade on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background-color: #0f6830; /* Slightly darker shade on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
