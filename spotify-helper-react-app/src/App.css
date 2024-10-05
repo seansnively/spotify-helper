@@ -43,7 +43,7 @@ ul li a:hover {
 }
 
 ul li a.active {
-  color: #3e4041;
+  color: #ffffff;
 }
 
 nav {
@@ -66,9 +66,14 @@ li {
 }
 
 a {
-  color: rgb(196, 41, 41);
+  color: rgb(0, 0, 0);
   text-decoration: none;
   font-weight: bold;
+}
+
+h1 {
+  width: 100%;
+  word-break: break-word;
 }
 
 @media (max-width: 390px) {

@@ -11,7 +11,7 @@ const NavBar = () => {
           <NavLink to="/vibe">Vibe</NavLink>
         </li>
         <li>
-          <NavLink to="/switchAccount">Switch Account or Logout</NavLink>
+          <NavLink to="/switchAccount">Logout</NavLink>
         </li>
       </ul>
     </nav>
