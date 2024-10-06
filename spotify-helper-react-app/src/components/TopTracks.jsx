@@ -4,10 +4,11 @@ import { useContext, useState } from 'react';
 const TopTracks = () => {
     const { user} = useContext(UserContext);
     
+    const[dateStr, setDateStr] = useState('');
+
     const [timeRangeSelected, setTimeRange] = useState('');
     const [songLimitSelected, setSongLimit] = useState(10);
     const songLimits = generateSongLimits(20);
-
 
     const [data, setData] = useState(null);
 
@@ -53,14 +54,14 @@ const TopTracks = () => {
             let averageEnergy = (dataInsights.averageEnergy * 10).toFixed(1);
 
             const dataInsightStrArr = [
-                `Danceability: ${averageDanceability}`,
-                `Positivity: ${averagePositivity}`,
-                `Energy: ${averageEnergy}`
+                `Danceability - ${averageDanceability}`,
+                `Positivity - ${averagePositivity}`,
+                `Energy - ${averageEnergy}`
             ];
 
             setDisplayInsightsArr(dataInsightStrArr);
 
-
+            setDateStr(getDate());
 
         } catch (error) {
             console.error('Error:', error);
@@ -73,7 +74,7 @@ const TopTracks = () => {
             <div class="top-song-button-drop-down">
             
                 <div>
-                    <label for="timeRangeSelect">Time range:</label>
+                    <label style={{color: 'whitesmoke'}} for="timeRangeSelect">Time range:</label>
                     <select id="timeRangeSelect" value={timeRangeSelected} onChange={(e) => setTimeRange(e.target.value)}>
                         <option value="short_term">Last month</option>
                         <option value="medium_term">Last 6 months</option>
@@ -83,7 +84,7 @@ const TopTracks = () => {
                 
 
                 <div>
-                    <label for="songLimitSelect">Song count:</label>
+                    <label style={{color: 'whitesmoke'}} for="songLimitSelect">Song count:</label>
                     <select class="song-limit-select" id="songLimitSelect" value={songLimitSelected} onChange={(e) => setSongLimit(e.target.value)}>
                         {songLimits.map((limit) => (
                             <option key={limit} value={limit}>
@@ -97,12 +98,14 @@ const TopTracks = () => {
                 
             </div>
             <div class="top-tracks-song-list">
+                <p style={{ fontFamily: selectedFont, marginBottom: '10px'}}>{dateStr}</p>
                 {displaySongArr.length > 0 ? (
                         displaySongArr.map((string, index) => (
                             <div key={index} class="song-list-element">
                                 <span class="song-list-number" style={{ fontFamily: selectedFont}}>{`${index < 9 ? '0' : ''}${index + 1}`}</span>
                                 <p style={{ fontFamily: selectedFont }}>{string}</p>
                             </div>
+                            
                         ))
                     ) : (
                         <p></p>
@@ -131,9 +134,9 @@ const TopTracks = () => {
       </select>
     </div>
             
-            {data && (
+            {/* {data && (
                 <pre>{JSON.stringify(data, null, 2)}</pre>
-            )}
+            )} */}
         </div>
     );
 };
@@ -166,15 +169,14 @@ function removeFeatStringFromTitleUsingIndex(title, index) {
     return title;
 }
 
-// function getSpacesForIndex(index) {
-//     let digitCount = index.toString().length;
-//     let spaceCount = 4 - digitCount;
-//     let result = '';
-//     for(let i = 0; i < spaceCount; i++) {
-//         result = result + '\u00A0';
-//     }
-//     return result;
-// }
+
+function getDate() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const formattedDate = now.toLocaleString('en-US', options);
+
+    return formattedDate;
+}
 
   
 export default TopTracks;
