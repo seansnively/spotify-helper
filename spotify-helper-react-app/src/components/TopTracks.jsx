@@ -13,6 +13,8 @@ const TopTracks = () => {
 
     const [displaySongArr, setDisplaySongArr] = useState([]);
 
+    const [displayInsightsArr, setDisplayInsightsArr] = useState([]);
+
 
     const fetchData = async () => {
         try {
@@ -20,6 +22,7 @@ const TopTracks = () => {
     
             const songsWithInsightsResponseBody = await response.json();
             setData(songsWithInsightsResponseBody);
+
 
             const sortedSongs = songsWithInsightsResponseBody.songResponseList.sort((a, b) => a.position - b.position);
             
@@ -37,6 +40,22 @@ const TopTracks = () => {
 
             setDisplaySongArr(displayStrs);
 
+
+            let dataInsights = songsWithInsightsResponseBody.songAverageDataInsights;
+            let averageDanceability = (dataInsights.averageDanceability * 10).toFixed(1);
+            let averagePositivity = (dataInsights.averagePositivity * 10).toFixed(1);
+            let averageEnergy = (dataInsights.averageEnergy * 10).toFixed(1);
+
+            const dataInsightStrArr = [
+                `Danceability: ${averageDanceability}`,
+                `Positivity: ${averagePositivity}`,
+                `Energy: ${averageEnergy}`
+            ];
+
+            setDisplayInsightsArr(dataInsightStrArr);
+
+
+
         } catch (error) {
             console.error('Error:', error);
         }
@@ -45,37 +64,57 @@ const TopTracks = () => {
     
     return (
         <div>
-            <button onClick={fetchData}>Fetch Data</button>
-            <div>
-                <select value={timeRangeSelected} onChange={(e) => setTimeRange(e.target.value)}>
-                    <option value="short_term">Last month</option>
-                    <option value="medium_term">Last 6 months</option>
-                    <option value="long_term">Last year</option>
-                </select>
+            <div class="top-song-button-drop-down">
+            
+                <div>
+                    <label for="timeRangeSelect">Time range:</label>
+                    <select id="timeRangeSelect" value={timeRangeSelected} onChange={(e) => setTimeRange(e.target.value)}>
+                        <option value="short_term">Last month</option>
+                        <option value="medium_term">Last 6 months</option>
+                        <option value="long_term">Last year</option>
+                    </select>
+                </div>
+                
+
+                <div>
+                    <label for="songLimitSelect">Song count:</label>
+                    <select class="song-limit-select" id="songLimitSelect" value={songLimitSelected} onChange={(e) => setSongLimit(e.target.value)}>
+                        {songLimits.map((limit) => (
+                            <option key={limit} value={limit}>
+                                {limit}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <button class="fetch-data-button" onClick={fetchData}>Go!</button>
+                
             </div>
-            <div>
-                <select value={songLimitSelected} onChange={(e) => setSongLimit(e.target.value)}>
-                    {songLimits.map((limit) => (
-                        <option key={limit} value={limit}>
-                            {limit}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            <div>
+            <div class="top-tracks-song-list">
                 {displaySongArr.length > 0 ? (
                         displaySongArr.map((string, index) => (
                             <p key={index}>{string}</p>
                         ))
                     ) : (
-                        <p>Click fetch data</p>
+                        <p></p>
+                    )
+                }
+            </div>
+        
+            <div class="top-tracks-song-list">
+                {displayInsightsArr.length > 0 ? (
+                        displayInsightsArr.map((string, index) => (
+                            <p key={index}>{string}</p>
+                        ))
+                    ) : (
+                        <p></p>
                     )
                 }
             </div>
             
-            {/* {data && (
+            {data && (
                 <pre>{JSON.stringify(data, null, 2)}</pre>
-            )} */}
+            )}
         </div>
     );
 };
