@@ -15,6 +15,12 @@ const TopTracks = () => {
 
     const [displayInsightsArr, setDisplayInsightsArr] = useState([]);
 
+    const [selectedFont, setSelectedFont] = useState('Arial'); // Default font
+    const fonts = ['Arial', 'Times New Roman', 'Courier New', 'Brush Script MT'];
+    const handleFontChange = (event) => {
+        setSelectedFont(event.target.value);
+    };
+
 
     const fetchData = async () => {
         try {
@@ -35,7 +41,7 @@ const TopTracks = () => {
                 }
                 let titleStr = removeFeatString(sortedSongs[i].name);
 
-                displayStrs.push(`${numStr}\u00A0\u00A0\u00A0\u00A0${titleStr} - ${sortedSongs[i].artists}`);
+                displayStrs.push(`${titleStr} - ${sortedSongs[i].artists}`);
             }
 
             setDisplaySongArr(displayStrs);
@@ -93,7 +99,10 @@ const TopTracks = () => {
             <div class="top-tracks-song-list">
                 {displaySongArr.length > 0 ? (
                         displaySongArr.map((string, index) => (
-                            <p key={index}>{string}</p>
+                            <div key={index} class="song-list-element">
+                                <span class="song-list-number" style={{ fontFamily: selectedFont}}>{`${index < 9 ? '0' : ''}${index + 1}`}</span>
+                                <p style={{ fontFamily: selectedFont }}>{string}</p>
+                            </div>
                         ))
                     ) : (
                         <p></p>
@@ -101,16 +110,26 @@ const TopTracks = () => {
                 }
             </div>
         
-            <div class="top-tracks-song-list">
+            <div class="insights-list">
                 {displayInsightsArr.length > 0 ? (
                         displayInsightsArr.map((string, index) => (
-                            <p key={index}>{string}</p>
+                            <p style={{ fontFamily: selectedFont }} key={index}>{string}</p>
                         ))
                     ) : (
                         <p></p>
                     )
                 }
             </div>
+
+            <div>
+                <select class="font-select-drop-down" value={selectedFont} onChange={handleFontChange}>
+                    {fonts.map((font) => (
+                        <option key={font} value={font}>
+                            {font}
+                        </option>
+                    ))}
+      </select>
+    </div>
             
             {data && (
                 <pre>{JSON.stringify(data, null, 2)}</pre>
@@ -146,6 +165,16 @@ function removeFeatStringFromTitleUsingIndex(title, index) {
     }
     return title;
 }
+
+// function getSpacesForIndex(index) {
+//     let digitCount = index.toString().length;
+//     let spaceCount = 4 - digitCount;
+//     let result = '';
+//     for(let i = 0; i < spaceCount; i++) {
+//         result = result + '\u00A0';
+//     }
+//     return result;
+// }
 
   
 export default TopTracks;

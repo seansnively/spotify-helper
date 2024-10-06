@@ -108,6 +108,10 @@ select {
   width: 50px; /* Adjust width as needed */
 }
 
+.font-select-drop-down {
+  width: 200px; /* Adjust width as needed */
+}
+
 select:hover {
   background-color: #18a94e; /* Slightly darker shade on hover */
   transform: translateY(-1px);
@@ -170,4 +174,23 @@ button:active {
 
 .top-tracks-song-list {
   margin: 5px;
+}
+
+.insights-list {
+  margin: 5px;
+  margin-top: 30px;
+}
+
+.song-list-element {
+  display: flex; /* Allow horizontal placement */
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+p {
+  margin: 0;
+}
+
+.song-list-number {
+  margin-right: 20px;
 }
