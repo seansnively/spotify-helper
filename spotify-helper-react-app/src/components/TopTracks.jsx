@@ -18,7 +18,7 @@ const TopTracks = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_TEST_VAR}?userAuthToken=${user.authToken}&timeRange=${timeRangeSelected}&songLimit=${songLimitSelected}`);
+            const response = await fetch(`${import.meta.env.VITE_TOP_TRACKS_URL}?userAuthToken=${user.authToken}&timeRange=${timeRangeSelected}&songLimit=${songLimitSelected}`);
     
             const songsWithInsightsResponseBody = await response.json();
             setData(songsWithInsightsResponseBody);
