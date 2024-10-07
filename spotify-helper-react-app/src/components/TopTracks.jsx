@@ -17,7 +17,7 @@ const TopTracks = () => {
     const [displayInsightsArr, setDisplayInsightsArr] = useState([]);
 
     const [selectedFont, setSelectedFont] = useState('Arial'); // Default font
-    const fonts = ['Arial', 'Times New Roman', 'Courier New', 'Brush Script MT'];
+    const fonts = ['Arial', 'Times New Roman', 'Courier New'];
     const handleFontChange = (event) => {
         setSelectedFont(event.target.value);
     };
