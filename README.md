@@ -35,7 +35,9 @@ The rest is S3 or web hosting set up. I'll give the S3 steps since that's what I
 ##References:
 
 CDK setup: https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html
+
 CDK tutorial I started with: https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html
+
 CDK workshop: https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US/2000-typescript-workshop
 
 Migrating CRA to Vite: https://semaphoreci.com/blog/vite
