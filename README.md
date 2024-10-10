@@ -32,7 +32,7 @@ The rest is S3 or web hosting set up. I'll give the S3 steps since that's what I
 7. Make sure no public access is blocked, the bucket policy lets anyone get any object from the bucket, etc. There's lots of resources out there on this. Click the static web host URL and that should be it.
 
 
-##References:
+### References:
 
 CDK setup: https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html
 
