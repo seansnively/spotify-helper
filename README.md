@@ -13,6 +13,12 @@ Simply put: React app <-> API Gateway <-> lambdas <-> Spotify API
 ## Demo:
 Google drive video link to watch a demo from a phone: https://drive.google.com/file/d/1ImT71ys2zBZismQW0iB_YWoEbPWasJWN/view?usp=sharing
 
+Preview:
+
+<img src="https://github.com/user-attachments/assets/35e0f23f-2262-4d63-9f37-d4cc0cd73029" width="200">
+<img src="https://github.com/user-attachments/assets/d7c6a33f-b180-4ac9-9efd-1316c0533ca4" width="200">
+
+
 ## Deployment process:
 Before I start, this is currently kind of manual, and could certainly use some improvement.
 
