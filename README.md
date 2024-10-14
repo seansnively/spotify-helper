@@ -3,6 +3,8 @@
 The purpose of this project was to get some experience building something in AWS with the CDK, and to refresh my frontend skills. 
 
 In my day job I work mainly on a large backend Java project. So this is part of my attempt to fill in some technical gaps, and add some breadth to my experience.
+
+If you know me, and would like to try it out, send me your email address to add you to the Spotify API allow list. I can then send you a link.
  
 ## Architecture Summary: 
 I used the CDK to make an API backed by lambda functions for the frontend to call.
