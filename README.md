@@ -22,7 +22,7 @@ Preview:
 
 
 ## Deployment process:
-Before I start, this is currently kind of manual, and could certainly use some improvement.
+This is currently kind of a manual deployment process, and could certainly use some improvement. Make sure you have node/npm, AWS CDK, and Vite set up before running these steps (check references below).
 
 1. Within /spotify-helper-cdk, run: `cdk deploy --profile YOUR_ACCOUNT_HERE --require-approval never`
 
