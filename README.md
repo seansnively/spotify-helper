@@ -11,7 +11,7 @@ On the frontend I used react. It started as a create-react-app, which I had to t
 Simply put: React app <-> API Gateway <-> lambdas <-> Spotify API
 
 ## Demo:
-Google drive video link to watch the top tracks: https://drive.google.com/file/d/1ImT71ys2zBZismQW0iB_YWoEbPWasJWN/view?usp=sharing
+Google drive video link to watch a demo from a phone: https://drive.google.com/file/d/1ImT71ys2zBZismQW0iB_YWoEbPWasJWN/view?usp=sharing
 
 ## Deployment process:
 Before I start, this is currently kind of manual, and could certainly use some improvement.
